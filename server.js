@@ -62,7 +62,7 @@ io.on("connection", socket => {
     }
   });
 });
-
+// node for production when I add database
 const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => console.log(`Server running on ${PORT}`));
