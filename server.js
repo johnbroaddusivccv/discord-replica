@@ -2,7 +2,6 @@ const path = require("path");
 const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
-const dotenv = require("dotenv");
 const formatMessage = require("./utils/messages");
 const {
   userJoin,
@@ -30,7 +29,7 @@ io.on("connection", socket => {
     //   broadcast when user connects
     socket.broadcast
       .to(user.room)
-      .emit("message", formatMessage(botName, "user joined chat"));
+      .emit("message", formatMessage(botName, `${user.username} joined chat`));
 
     //   Send users room info
     io.to(user.room).emit("roomUsers", {
